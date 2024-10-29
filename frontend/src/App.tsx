@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/book/');
+        const response = await axios.get('https://week-1-book-catalog.onrender.com/api/v1/book/');
         console.log(response.data.books); 
         setBooks(response.data.books); 
       } catch (error) {
@@ -28,7 +28,7 @@ function App() {
 
   const handleAddBook = async (data: BookFormData) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/book/', data);
+      const response = await axios.post('https://week-1-book-catalog.onrender.com/api/v1/book/', data);
       const newBook = response.data.book; 
       console.log(newBook); 
       setBooks((prevBooks) => [...prevBooks, newBook]); // Append the new book
@@ -45,7 +45,7 @@ function App() {
     console.log(editingBook._id);
     
     try {
-      await axios.put(`http://localhost:3000/api/v1/book/${editingBook._id}`, data);
+      await axios.put(`https://week-1-book-catalog.onrender.com/api/v1/book/${editingBook._id}`, data);
       const updatedBooks = books.map((book) =>
         book._id === editingBook._id ? { ...data, _id: editingBook._id } : book
       );
@@ -60,7 +60,7 @@ function App() {
 
   const handleDeleteBook = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3000/api/v1/book/${id}`);
+      await axios.delete(`https://week-1-book-catalog.onrender.com/api/v1/book/${id}`);
       setBooks(books.filter((book) => book._id !== id));
     } catch (error) {
       console.error('Error deleting book:', error);

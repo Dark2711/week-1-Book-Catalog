@@ -25,13 +25,21 @@ export function BookCard({ book, onEdit, onDelete }: BookCardProps) {
         <p className="text-gray-700 mb-4 line-clamp-3">{book.description}</p>
         <div className="flex justify-end space-x-2">
           <button
-            onClick={() => onEdit(book)}
+            onClick={() => {
+              alert("Not allowed");
+              // onEdit(book)
+
+            }}
             className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
           >
             <Pencil size={18} />
           </button>
           <button
-            onClick={() => onDelete(book._id)}
+            onClick={() => {
+              alert("Not allowed");
+              
+              // onDelete(book._id)
+            }}
             className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors"
           >
             <Trash2 size={18} />

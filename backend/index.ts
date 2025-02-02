@@ -11,6 +11,9 @@ app.use(express.json());
 
 //connect to mongoDB
 connectDB();
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 
 app.use('/api/v1', mainRouter);
 
